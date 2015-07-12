@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Addon Author="Psyphil" APIVersion="9" Name="RollingDiceLootCouncil" Description="A tool to make Loot Council easier to manage." Version="a1">
+    <Script Name="RollingDiceLootCouncil.lua"/>
+    <Script Name="libs\UTF8\utf8.lua"/>
+    <Script Name="libs\DevTools.lua"/>
+    <Form Name="RollingDiceLootCouncil.xml"/>
+</Addon>
