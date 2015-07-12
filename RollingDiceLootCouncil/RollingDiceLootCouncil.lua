@@ -389,6 +389,20 @@ function RollingDiceLootCouncil:GetItemData(item)
 		tItemInfo.item = item
 		tItemInfo.eSlot = item:GetSlot()
 		tItemInfo.tStats = {}
+
+                -- Determine item slot, even on tokens:
+                local isToken, tokenSlot
+                _, _, isToken, tokenSlot = string.find(item:GetItemTypeName(), "^(Token) %- .+ %- (%a+)$")
+                if isToken and tItemQualities[item:GetItemQuality()].label == "Legendary" then
+                    if      tokenSlot == "Chest"    then tItemInfo.eSlot = 0
+                    elseif  tokenSlot == "Legs"     then tItemInfo.eSlot = 1
+                    elseif  tokenSlot == "Head"     then tItemInfo.eSlot = 2
+                    elseif  tokenSlot == "Shoulder" then tItemInfo.eSlot = 3
+                    elseif  tokenSlot == "Feet"     then tItemInfo.eSlot = 4
+                    elseif  tokenSlot == "Hands"    then tItemInfo.eSlot = 5
+                    else
+                    end
+                end
 		
 		for i=1,#(tItemInfo.arInnateProperties or {}) do
 			local stat = tItemInfo.arInnateProperties[i]
